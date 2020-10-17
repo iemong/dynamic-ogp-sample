@@ -10,7 +10,31 @@ export default {
   name: 'Slug',
   asyncData({ params }) {
     return {
-      params: JSON.stringify(params),
+      params,
+    }
+  },
+  head() {
+    return {
+      title: `title: ${this.params.slug}`,
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: `title is ${this.params.slug}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `uniq url is ${this.params.slug}`,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          property: 'og:description',
+          content: `uniq url is ${this.params.slug}`,
+        },
+      ],
     }
   },
 }
